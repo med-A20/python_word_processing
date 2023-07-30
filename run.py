@@ -55,4 +55,4 @@ logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
