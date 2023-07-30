@@ -6,6 +6,7 @@ import logging
 
 app = Flask(__name__)
 
+logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 def merge_docx(source_docx, merge_file_paths, output_path):
     # Open the source document
     doc1 = Document(source_docx)
@@ -55,7 +56,6 @@ def merge_docx_api():
         logging.error(f'Error occurred: {str(e)}')
         return jsonify({'error': str(e)}), 500
 
-    logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 if __name__ == '__main__':
