@@ -1,10 +1,12 @@
+from flask import Blueprint, redirect, url_for
 import os
 from flask import Flask, request, jsonify
 from docx import Document
 import logging
 
 
-app = Flask(__name__)
+
+app = Blueprint('main', __name__)
 
 # logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 def merge_docx(source_docx, merge_file_paths, output_path):
@@ -56,11 +58,3 @@ def merge_docx_api():
         logging.error(f'Error occurred: {str(e)}')
         return jsonify({'error': str(e)}), 500
 
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
-
- 
