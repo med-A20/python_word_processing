@@ -22,6 +22,10 @@ def merge_docx(source_docx, merge_file_paths, output_path):
     # Save the merged document to the output path
     doc1.save(output_path)
 
+@app.route('/', methods = ['GET'])
+def home():
+    return 'Hello World !'
+
 @app.route('/merge-docx', methods=['POST'])
 def merge_docx_api():
     try:
